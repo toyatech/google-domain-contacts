@@ -1,0 +1,48 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+<link rel="import" href="../google-signin/google-signin-aware.html">
+
+<!--
+`google-domain-contacts`
+Easily work with contacts from a Google Apps Domain.
+
+@demo demo/index.html 
+-->
+
+<dom-module id="google-domain-contacts">
+
+  <style>
+    :host {
+      display: none;
+    }
+  </style>
+
+  <template>
+
+    <google-signin-aware
+      scopes="http://www.google.com/m8/feeds/contacts/"
+      on-google-signin-aware-success="_onSignIn">
+    </google-signin-aware>
+
+    <iron-ajax id="ajax"
+      url="https://www.googleapis.com/">
+    </iron-ajax>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'google-domain-contacts',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'google-domain-contacts',
+        },
+      },
+
+    });
+  </script>
+</dom-module>
